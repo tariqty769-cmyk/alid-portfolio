@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>আলিদ | Personal Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #080b16;
+      color: #f8fafc;
+      line-height: 1.7;
+    }
+
+    :root {
+      --blue: #60a5fa;
+      --purple: #a78bfa;
+      --panel: #11172a;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+      border-bottom: 1px solid #ffffff15;
+      position: sticky;
+      top: 0;
+      background: #080b16ed;
+      backdrop-filter: blur(12px);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+      color: var(--blue);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 13px;
+    }
+
+    nav a:hover { color: var(--purple); }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      background: radial-gradient(ellipse at 50% 35%, #4338ca35, transparent 60%);
+    }
+
+    .avatar {
+      width: 115px;
+      height: 115px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 42px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      color: #080b16;
+      box-shadow: 0 0 45px #818cf855;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 8vw, 58px);
+      margin-top: 25px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #60a5fa, #c4b5fd, #60a5fa);
+      background-size: 200%;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: shine 4s linear infinite;
+    }
+
+    .hero p {
+      color: #b6bfd3;
+      max-width: 500px;
+      margin: 12px 0 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 10px;
+      background: linear-gradient(120deg, #60a5fa, #a78bfa);
+      color: #080b16;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px #818cf855;
+    }
+
+    section {
+      padding: 65px 7%;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: var(--panel);
+      padding: 24px;
+      border: 1px solid #ffffff12;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      transition: transform .3s, border-color .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #818cf888;
+    }
+
+    .card p { color: #b6bfd3; margin-top: 8px; }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .skill {
+      padding: 9px 15px;
+      border-radius: 9px;
+      background: #171d32;
+      border: 1px solid #818cf844;
+      color: #c4b5fd;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s, transform .7s;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #ffffff15;
+      color: #9ca3af;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 14px 5%; }
+      nav a { margin-left: 8px; font-size: 11px; }
+      section { padding: 48px 6%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">ALID.</div>
+    <nav>
+      <a href="#about">পরিচিতি</a>
+      <a href="#skills">দক্ষতা</a>
+      <a href="#projects">প্রজেক্ট</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="avatar">A</div>
+      <h1>হ্যালো, আমি <span class="gradient">আলিদ</span></h1>
+      <p>আমি নতুন কিছু শিখতে, প্রযুক্তি নিয়ে কাজ করতে এবং নিজের দক্ষতা বাড়াতে ভালোবাসি।</p>
+      <a class="btn" href="#about">আমার সম্পর্কে জানো ↘</a>
+    </div>
+
+    <section id="about" class="reveal">
+      <h2 class="section-title">আমার পরিচিতি</h2>
+      <div class="card">
+        <h3>About Me</h3>
+        <p>আমি একজন শিক্ষার্থী। বর্তমানে HTML, CSS ও JavaScript শিখছি। আমার লক্ষ্য হলো নিজের আইডিয়া দিয়ে সুন্দর ও কার্যকর ওয়েবসাইট তৈরি করা।</p>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <h2 class="section-title">আমার দক্ষতা</h2>
+      <div class="skills">
+        <span class="skill">HTML — শিখছি</span>
+        <span class="skill">CSS — শিখছি</span>
+        <span class="skill">JavaScript — শিখছি</span>
+        <span class="skill">Creative Thinking</span>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <h2 class="section-title">আমার প্রজেক্ট</h2>
+      <div class="card">
+        <h3>প্রজেক্ট ০১ — Personal Website</h3>
+        <p>এই পোর্টফোলিও ওয়েবসাইটটিই আমার প্রথম প্রজেক্ট।</p>
+      </div>
+      <div class="card">
+        <h3>প্রজেক্ট ০২ — Coming Soon</h3>
+        <p>নতুন কিছু তৈরি করছি। শিগগিরই এখানে যোগ হবে।</p>
+      </div>
+    </section>
+
+    <section class="reveal" style="text-align:center">
+      <h2 class="section-title">যোগাযোগ</h2>
+      <p style="color:#b6bfd3;margin-bottom:20px">আমার সঙ্গে যোগাযোগ করতে চাইলে নিচের বাটনে চাপ দাও।</p>
+      <button class="btn" onclick="sayHello()">এখানে ক্লিক করো</button>
+      <p id="message" style="margin-top:18px;color:#86efac"></p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> আলিদ | Made with curiosity ✦
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function sayHello() {
+      document.getElementById("message").textContent =
+        "ধন্যবাদ! আমার ওয়েবসাইটে আসার জন্য।";
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
